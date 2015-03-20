@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('kanbanApp', [
-  'ui.router'
+  'ui.router',
+  'backlogModule'
 ]);
 
 var appConfig = function ($stateProvider, $urlRouterProvider) {
@@ -34,11 +35,33 @@ var appConfig = function ($stateProvider, $urlRouterProvider) {
       }
     })
     .state('app.backlog', {
-      url: '/backlog',
+      abstract: true,
+      url: '/backlog'
+    })
+    .state('app.backlog.list', {
+      url: '/list',
       views : {
-        '': {
-          templateUrl: 'scripts/backlog/backlog.html',
-          controller: 'BacklogController as controller'
+        '@app': {
+          templateUrl: 'scripts/backlog/backlog-list.html',
+          controller: 'UpdateBacklogController as controller'
+        }
+      }
+    })
+    .state('app.backlog.create', {
+      url: '/create',
+      views : {
+        '@app': {
+          templateUrl: 'scripts/backlog/create-backlog.html',
+          controller: 'UpdateBacklogController as controller'
+        }
+      }
+    })
+    .state('app.backlog.update', {
+      url: '/update',
+      views : {
+        '@app': {
+          templateUrl: 'scripts/backlog/update-backlog.html',
+          controller: 'UpdateBacklogController as controller'
         }
       }
     });

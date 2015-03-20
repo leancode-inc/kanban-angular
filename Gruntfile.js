@@ -41,7 +41,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['app/**/*-spec.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       compass: {
@@ -416,8 +416,9 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'test/karma.conf.js',
-        singleRun: true
+        configFile: 'karma.conf.js',
+        singleRun: false,
+        autoWatch: true
       }
     }
   });

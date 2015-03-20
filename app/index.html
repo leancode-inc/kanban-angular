@@ -21,8 +21,8 @@
 
 
     <!-- Add your site or application content here -->
-    <div class="container-fluid content-block">
-      <div class="container">
+    <div class="container-fluid content-block row">
+      <div class="col-lg-8 col-lg-offset-2">
         <div data-ui-view="header"></div>
         <div data-ui-view="content"></div>
         <div data-ui-view="footer"></div>
@@ -51,11 +51,12 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
         <script src="scripts/header/header-controller.js"></script>
         <script src="scripts/footer/footer-controller.js"></script>
         <script src="scripts/dashboard/dashboard-controller.js"></script>
-        <script src="scripts/backlog/backlog-controller.js"></script>
+        <script src="scripts/backlog/backlog-module.js"></script>
+        <script src="scripts/backlog/backlog-list-controller.js"></script>
+        <script src="scripts/app.js"></script>
         <!-- endbuild -->
 </body>
 </html>
